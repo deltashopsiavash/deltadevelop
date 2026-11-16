@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}خدمات نرم‌افزاری | DeltaDevelop{% endblock %}
+{% block content %}
+<section class="container inner-hero"><div class="eyebrow">SERVICES / DELTADEVELOP</div><h1>خدمات <em>توسعه نرم‌افزار</em></h1><p>راهکارهایی برای طراحی، ساخت و بهبود محصولات دیجیتال؛ محدوده و هزینه هر پروژه پس از بررسی نیازها مشخص می‌شود.</p></section>
+<section class="container section">
+{% if services %}
+<div class="service-grid">
+  {% for service in services %}
+  <article class="service-card"><div class="card-no">/ 0{{ forloop.counter }}</div><div class="card-symbol">⌘</div><h3>{{ service.title }}</h3><p>{{ service.short_description }}</p>{% if service.description %}<p class="service-detail">{{ service.description|linebreaksbr }}</p>{% endif %}<a href="{% url 'request_project' %}?service={{ service.id }}">درخواست این خدمت ↗</a></article>
+  {% endfor %}
+</div>
+{% else %}
+<div class="service-grid">
+<article class="service-card"><div class="card-no">/ 01</div><div class="card-symbol">⌘</div><h3>طراحی وب‌سایت</h3><p>طراحی وب‌سایت و پنل اختصاصی؛ مشخصات و قیمت پس از بررسی درخواست تعیین می‌شود.</p><a href="{% url 'request_project' %}">ثبت درخواست ↗</a></article>
+<article class="service-card"><div class="card-no">/ 02</div><div class="card-symbol">⌁</div><h3>برنامه‌نویسی ربات</h3><p>توسعه ربات‌های مدیریتی و اتوماسیون متناسب با سناریوی کسب‌وکار.</p><a href="{% url 'request_project' %}">ثبت درخواست ↗</a></article>
+<article class="service-card"><div class="card-no">/ 03</div><div class="card-symbol">{ }</div><h3>نرم‌افزار و API</h3><p>توسعه نرم‌افزار، داشبورد و اتصال سرویس‌ها با API اختصاصی.</p><a href="{% url 'request_project' %}">ثبت درخواست ↗</a></article>
+</div>
+{% endif %}
+</section>
+{% endblock %}

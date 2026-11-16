@@ -1,0 +1,18 @@
+[Unit]
+Description=DeltaDevelop independent Django site
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=deltadevelop
+Group=deltadevelop
+WorkingDirectory=/opt/deltadevelop
+EnvironmentFile=/etc/deltadevelop/site.env
+ExecStart=/opt/deltadevelop/.venv/bin/gunicorn --workers 2 --bind 127.0.0.1:8091 --access-logfile - --error-logfile - config.wsgi:application
+Restart=on-failure
+RestartSec=5
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

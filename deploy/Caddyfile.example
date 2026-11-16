@@ -1,0 +1,5 @@
+# Replace the domain if necessary; DNS must point to this server.
+deltadevelop.ir, www.deltadevelop.ir {
+    encode zstd gzip
+    reverse_proxy 127.0.0.1:8091
+}

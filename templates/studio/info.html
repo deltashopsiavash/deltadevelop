@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="container inner-hero">
+  <div class="eyebrow">DELTADEVELOP / INFORMATION</div>
+  {% if page == 'about' %}<h1>درباره <em>DeltaDevelop</em></h1><p>نگاهی به رویکرد طراحی و توسعه محصولات دیجیتال.</p>
+  {% elif page == 'contact' %}<h1>راه‌های <em>ارتباطی</em></h1><p>برای هماهنگی و گفتگو درباره خدمات نرم‌افزاری.</p>
+  {% elif page == 'privacy' %}<h1>حریم <em>خصوصی</em></h1><p>چگونگی دریافت و استفاده از اطلاعات درخواست‌های همکاری.</p>
+  {% elif page == 'terms' %}<h1>شرایط <em>ارائه خدمات</em></h1><p>چارچوب اولیه ثبت درخواست و شروع همکاری نرم‌افزاری.</p>{% endif %}
+</section>
+<section class="container info-layout">
+  <div class="info-main">
+  {% if page == 'about' %}
+    <h2>توسعه نرم‌افزار با نگاه مسئله‌محور</h2>
+    {% if studio_profile and studio_profile.about %}<p>{{ studio_profile.about|linebreaksbr }}</p>{% else %}
+    <p>DeltaDevelop بستری برای معرفی خدمات طراحی و توسعه نرم‌افزار است؛ شامل وب‌سایت، سامانه‌های اختصاصی، ربات و یکپارچه‌سازی API. هدف این مجموعه، تعریف روشن نیازهای هر پروژه و انتخاب راهکار متناسب با همان نیاز است.</p>{% endif %}
+    <p>اطلاعات پروژه‌ها و نمونه‌کارهای قابل انتشار پس از تأیید و تکمیل در سایت درج خواهند شد.</p>
+  {% elif page == 'contact' %}
+    <h2>اطلاعات تماس</h2>
+    {% if studio_profile and studio_profile.email %}<div class="contact-line"><strong>ایمیل</strong><a href="mailto:{{ studio_profile.email }}">{{ studio_profile.email }}</a></div>{% endif %}
+    {% if studio_profile and studio_profile.phone %}<div class="contact-line"><strong>تلفن</strong><a href="tel:{{ studio_profile.phone }}">{{ studio_profile.phone }}</a></div>{% endif %}
+    {% if studio_profile and studio_profile.address %}<div class="contact-line"><strong>نشانی</strong><span>{{ studio_profile.address }}</span></div>{% endif %}
+    {% if not studio_profile or not studio_profile.email and not studio_profile.phone %}<p>اطلاعات تماس مستقیم هنوز توسط مدیر سایت تکمیل نشده است. می‌توانید از فرم درخواست پروژه استفاده کنید.</p>{% endif %}
+    <a class="btn btn-primary" href="{% url 'request_project' %}">فرم درخواست پروژه ↗</a>
+  {% elif page == 'privacy' %}
+    <h2>سیاست حفظ اطلاعات</h2>
+    <p>اطلاعاتی که شما در فرم درخواست پروژه وارد می‌کنید شامل نام، نشانی ایمیل، شماره تماس اختیاری و توضیحات پروژه است. این اطلاعات برای بررسی درخواست و ارتباط درباره همان پروژه ثبت می‌شود.</p>
+    <p>اطلاعات به‌صورت عمومی در سایت نمایش داده نمی‌شوند و تنها مدیران مجاز سامانه مدیریت به آن‌ها دسترسی دارند. از فروش یا نمایش عمومی اطلاعات تماس استفاده نمی‌کنیم.</p>
+    <p>برای درخواست اصلاح یا حذف اطلاعات ثبت‌شده، از بخش تماس با ما اقدام کنید. برخی داده‌ها ممکن است برای رعایت الزامات قانونی نیاز به نگهداری داشته باشند.</p>
+  {% elif page == 'terms' %}
+    <h2>شرایط ثبت درخواست</h2>
+    <p>اطلاعات خدمات در این وب‌سایت جنبه معرفی دارند. ثبت فرم درخواست به‌معنای تأیید قطعی پروژه، انعقاد قرارداد یا تعهد به زمان یا هزینه مشخص نیست.</p>
+    <p>موضوع پروژه، زمان‌بندی، هزینه، تحویل، مالکیت کد و شرایط پشتیبانی در صورت توافق طرفین به‌صورت مستقل و شفاف تعیین می‌شود.</p>
+    <p>تا فعال‌شدن امکان سفارش‌گیری و پرداخت واقعی، هیچ وجهی از طریق این وب‌سایت دریافت نمی‌شود. شرایط بازپرداخت احتمالی در قرارداد هر پروژه مشخص خواهد شد.</p>
+  {% endif %}
+  </div>
+  <aside class="info-aside"><div class="kicker">NEXT STEP</div><h3>پروژه‌ای در ذهن دارید؟</h3><p>با ثبت مشخصات اولیه پروژه، بررسی نیازها رو شروع کنید.</p><a class="btn btn-outline" href="{% url 'request_project' %}">ثبت درخواست ↗</a></aside>
+</section>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}ثبت درخواست پروژه | DeltaDevelop{% endblock %}
+{% block content %}
+<section class="container inner-hero"><div class="eyebrow">START A PROJECT</div><h1>درباره ایده‌تان <em>بگویید.</em></h1><p>این فرم فقط برای بررسی درخواست پروژه است. ثبت فرم به‌معنای خرید، پرداخت یا انعقاد قرارداد نیست.</p></section>
+<section class="container form-layout">
+  <div class="form-panel"><h2>فرم درخواست همکاری</h2>
+  <form method="post" novalidate>{% csrf_token %}
+    {{ form.website }}
+    {% if form.non_field_errors %}<div class="form-error">{{ form.non_field_errors }}</div>{% endif %}
+    <div class="field-row">
+    {% for field in form %}
+      {% if field.name != 'website' and field.name != 'accept_privacy' %}
+      <div class="field {% if field.name == 'description' %}field-full{% endif %}">
+        <label for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %} <span>*</span>{% endif %}</label>
+        {{ field }}{% if field.errors %}<div class="form-error">{{ field.errors }}</div>{% endif %}
+      </div>
+      {% endif %}
+    {% endfor %}
+    </div>
+    <label class="check">{{ form.accept_privacy }} <span>با پردازش اطلاعات تماس برای پاسخ‌گویی به این درخواست طبق <a href="{% url 'privacy' %}">سیاست حریم خصوصی</a> موافقم.</span></label>
+    {% if form.accept_privacy.errors %}<div class="form-error">{{ form.accept_privacy.errors }}</div>{% endif %}
+    <button class="btn btn-primary" type="submit">ثبت درخواست <span>↖</span></button>
+  </form></div>
+  <aside class="form-aside"><div class="kicker">HOW IT WORKS</div><h3>بعد از ثبت درخواست چه اتفاقی می‌افتد؟</h3><div class="aside-step"><span>01</span><p>درخواست شما در پنل مدیریت ثبت می‌شود.</p></div><div class="aside-step"><span>02</span><p>نیازهای پروژه بررسی شده و در صورت امکان هماهنگی انجام می‌شود.</p></div><div class="aside-step"><span>03</span><p>محدوده کار و شرایط پروژه قبل از شروع توافق می‌شود.</p></div><small>برای تماس، فقط اطلاعات واقعی خود را ثبت کنید. سایت فعلاً پرداخت آنلاین ندارد.</small></aside>
+</section>
+{% endblock %}

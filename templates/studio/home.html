@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero container">
+  <div class="hero-copy">
+    <div class="eyebrow"><span class="online-dot"></span> SOFTWARE DEVELOPMENT STUDIO <span class="eyebrow-line"></span> 01 / 04</div>
+    <h1>ایده‌های خوب،<br><em>محصولات دیجیتال</em><br>ماندگار می‌سازند.</h1>
+    <p>از طراحی وب‌سایت و ربات‌های کاربردی تا توسعه پنل‌ها و سامانه‌های اختصاصی؛ برای هر پروژه، راهکاری متناسب با نیاز واقعی آن تعریف می‌کنیم.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{% url 'request_project' %}">شروع یک پروژه <span>↖</span></a>
+      <a class="btn btn-outline" href="{% url 'services' %}">آشنایی با خدمات <span>↗</span></a>
+    </div>
+    <div class="hero-note"><span>◆</span> برنامه‌نویسی، طراحی رابط و توسعه سیستم‌های اختصاصی</div>
+  </div>
+  <div class="hero-art" aria-label="نمای گرافیکی گردش کار توسعه نرم‌افزار">
+    <div class="art-grid"></div>
+    <div class="floating-tag tag-a">SYSTEM / DESIGN</div>
+    <div class="floating-tag tag-b">BUILD / DEPLOY</div>
+    <div class="art-window">
+      <div class="window-top"><span class="dots">● ● ●</span><span>studio / workflow</span><span>⌘</span></div>
+      <div class="window-content">
+        <div class="window-aside"><span>01</span><span>02</span><span>03</span><span>04</span></div>
+        <div class="window-lines"><div class="code-label">// DELTADEVELOP / PROCESS</div>
+          <div class="code-line"><span>const</span> idea = <b>"Your vision"</b>;</div>
+          <div class="code-line"><span>const</span> plan = <b>design(idea)</b>;</div>
+          <div class="code-line"><span>const</span> result = <b>build(plan)</b>;</div>
+          <div class="code-line accent-line">→ ready to evolve_</div>
+          <div class="progress-bars"><i></i><i></i><i></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="art-orbit"></div>
+  </div>
+</section>
+<div class="container"><div class="section-rule"><span>WHAT WE DO</span><i></i><span>01 — 03</span></div></div>
+<section class="container section services-section">
+  <div class="section-head"><div><div class="kicker">خدمات تخصصی</div><h2>راهکار، نه فقط <span>کد.</span></h2></div><a class="text-link" href="{% url 'services' %}">مشاهده همه خدمات <span>↗</span></a></div>
+  <div class="service-grid">
+    <article class="service-card"><div class="card-no">/ 01</div><div class="card-symbol">⌘</div><h3>طراحی و توسعه وب</h3><p>طراحی رابط کاربری، پیاده‌سازی وب‌سایت‌های اختصاصی و پنل‌های مدیریت متناسب با نیاز پروژه.</p><a href="{% url 'request_project' %}">درخواست مشاوره <span>↗</span></a></article>
+    <article class="service-card"><div class="card-no">/ 02</div><div class="card-symbol">⌁</div><h3>ساخت ربات و اتوماسیون</h3><p>ربات تلگرام، گردش‌کار خودکار، یکپارچه‌سازی سامانه‌ها و ابزارهای مدیریتی کاربردی.</p><a href="{% url 'request_project' %}">درخواست مشاوره <span>↗</span></a></article>
+    <article class="service-card"><div class="card-no">/ 03</div><div class="card-symbol">{ }</div><h3>نرم‌افزار و API</h3><p>توسعه سرویس‌های تحت وب، داشبوردهای تحلیلی و اتصال امن نرم‌افزارهای مختلف به یکدیگر.</p><a href="{% url 'request_project' %}">درخواست مشاوره <span>↗</span></a></article>
+  </div>
+</section>
+<section class="container section">
+  <div class="process-layout">
+    <div><div class="kicker">روش همکاری</div><h2>قدم‌های روشن،<br><span>نتیجه قابل پیگیری.</span></h2><p class="muted">درخواست‌ها از مسیر مشخص بررسی می‌شوند و محدوده کار، زمان‌بندی و شرایط اجرا پیش از شروع هر پروژه توافق می‌شود.</p><a class="text-link" href="{% url 'request_project' %}">شرح ایده‌تان را بفرستید ↗</a></div>
+    <div class="process-list">
+      <div class="process-item"><span>01</span><div><h3>شناخت نیاز</h3><p>بررسی اهداف، امکانات موردنیاز و شرایط پروژه</p></div><i>↗</i></div>
+      <div class="process-item"><span>02</span><div><h3>طراحی راهکار</h3><p>تعیین محدوده اجرا، فناوری و مسیر توسعه</p></div><i>↗</i></div>
+      <div class="process-item"><span>03</span><div><h3>پیاده‌سازی</h3><p>توسعه مرحله‌ای و بررسی عملکرد و کیفیت</p></div><i>↗</i></div>
+      <div class="process-item"><span>04</span><div><h3>تحویل و پشتیبانی</h3><p>مستندسازی و پشتیبانی طبق توافق پروژه</p></div><i>↗</i></div>
+    </div>
+  </div>
+</section>
+<section class="container cta-section"><div class="cta-glow"></div><div class="kicker">LET'S BUILD SOMETHING</div><h2>پروژه بعدی شما<br><span>از یک گفتگو شروع می‌شود.</span></h2><p>برای بررسی نیاز نرم‌افزاری خود، درخواست اولیه ثبت کنید.</p><a class="btn btn-light" href="{% url 'request_project' %}">ثبت درخواست پروژه <span>↖</span></a></section>
+{% endblock %}
