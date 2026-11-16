@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="StudioProfile",
             fields=[
-                ("id", models.BigAutoField(primary_key=True, serialize=False, verbose_name="ID")),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
                 ("name", models.CharField(default="DeltaDevelop", max_length=100, verbose_name="نام برند")),
                 ("slogan", models.CharField(default="از ایده تا محصول نرم‌افزاری", max_length=180, verbose_name="شعار")),
                 ("introduction", models.TextField(blank=True, verbose_name="معرفی کوتاه")),
@@ -24,7 +24,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="Service",
             fields=[
-                ("id", models.BigAutoField(primary_key=True, serialize=False, verbose_name="ID")),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
                 ("slug", models.SlugField(allow_unicode=True, max_length=70, unique=True, verbose_name="شناسه لینک")),
                 ("title", models.CharField(max_length=130, verbose_name="عنوان خدمت")),
                 ("short_description", models.CharField(max_length=280, verbose_name="خلاصه")),
@@ -41,7 +41,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="ProjectRequest",
             fields=[
-                ("id", models.BigAutoField(primary_key=True, serialize=False, verbose_name="ID")),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
                 ("name", models.CharField(max_length=130, verbose_name="نام درخواست‌دهنده")),
                 ("email", models.EmailField(max_length=254, verbose_name="ایمیل")),
                 ("phone", models.CharField(blank=True, max_length=40, verbose_name="شماره تماس")),
