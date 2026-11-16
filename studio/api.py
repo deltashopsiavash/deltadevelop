@@ -53,6 +53,12 @@ def bot_api(request):
             "version": 1, "domain": "deltadevelop.ir",
             "capabilities": CAPABILITIES,
         })
+    # The shared Telegram notification poller queries every connected site.
+    # This brochure site has no event queue yet; return an honest empty feed.
+    if action == "events_poll":
+        return result([])
+    if action == "events_ack":
+        return result({"acknowledged": 0})
     if action == "dashboard":
         return result({
             "service_count": Service.objects.filter(is_active=True).count(),
